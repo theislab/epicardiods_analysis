@@ -26,7 +26,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+.github/
+.vscode/
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -84,6 +85,7 @@ ipython_config.py
 # pyenv
 .python-version
 
+
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
 #   However, in case of collaboration, if having platform-specific dependencies or dependencies
@@ -124,26 +126,24 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+.pytype/
 
 # Pyre type checker
 .pyre/
 
-# patterns to prevent data and figures from being uploaded
-*.csv
-*.pickle
-*.h5ad
-*.loom
-*.pdf
-*.png
-*.jpg
-*.jpeg
-*.svg
-*.mtx
-*.txt
-*.rds
+# Jetbrains IDE
+.idea/
 
-# OS specifics
-**.DS_Store
+# Coala
+*.orig
 
-# R stuff
-*.Rhistory
+
+# log files
+wandb
+slurm_outputs
+checkpoints
+tb_logs
+lightning_logs
+MNIST
+example
+logs
