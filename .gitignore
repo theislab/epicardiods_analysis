@@ -147,3 +147,4 @@ lightning_logs
 MNIST
 example
 logs
+*.out
