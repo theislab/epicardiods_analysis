@@ -148,3 +148,5 @@ MNIST
 example
 logs
 *.out
+*.pt
+*.dill
