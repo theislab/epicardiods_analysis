@@ -1,30 +1,9 @@
 library(ArchR)
 library(data.table)
 library(parallel)
-sampleFile = fread('/storage/groups/ml01/workspace/laura.martens/moretti_colab/archr_final/sample_file.csv')
-inputFiles <- sampleFile$fragments
-names(inputFiles) <- sampleFile$library_id
-addArchRGenome("hg19")
 
-# ArrowFiles <- createArrowFiles(
-#   inputFiles = inputFiles,
-#   sampleNames = names(inputFiles),
-#   filterTSS = 10, #Dont set this too high because you can always increase later
-#   filterFrags = 1000, 
-#   addTileMat = TRUE,
-#   addGeneScoreMat = TRUE,
-# )
-
-# doubScores <- addDoubletScores(
-#   input = ArrowFiles,
-#   k = 10, #Refers to how many cells near a "pseudo-doublet" to count.
-#   knnMethod = "UMAP", #Refers to the embedding to use for nearest neighbor search.
-#   LSIMethod = 1
-# )
-
-# Day 7
-
-sampleFile = fread('/storage/groups/ml01/workspace/laura.martens/moretti_colab/archr_final/sample_file_day7.csv')
+setwd('/lustre/groups/ml01/workspace/laura.martens/moretti_colab/archr_final/')
+sampleFile = fread('/lustre/groups/ml01/workspace/laura.martens/moretti_colab/archr_final/sample_file.csv')
 inputFiles <- sampleFile$fragments
 names(inputFiles) <- sampleFile$library_id
 addArchRGenome("hg19")
@@ -32,8 +11,31 @@ addArchRGenome("hg19")
 ArrowFiles <- createArrowFiles(
   inputFiles = inputFiles,
   sampleNames = names(inputFiles),
-  filterTSS = 4, #Dont set this too high because you can always increase later
-  filterFrags = 600, 
+  filterTSS = 0, #Dont set this too high because you can always increase later
+  filterFrags = 0, 
+  addTileMat = TRUE,
+  addGeneScoreMat = TRUE,
+)
+
+doubScores <- addDoubletScores(
+  input = ArrowFiles,
+  k = 10, #Refers to how many cells near a "pseudo-doublet" to count.
+  knnMethod = "UMAP", #Refers to the embedding to use for nearest neighbor search.
+  LSIMethod = 1
+)
+
+# Day 7
+
+sampleFile = fread('/lustre/groups/ml01/workspace/laura.martens/moretti_colab/archr_final/sample_file_day7.csv')
+inputFiles <- sampleFile$fragments
+names(inputFiles) <- sampleFile$library_id
+addArchRGenome("hg19")
+
+ArrowFiles <- createArrowFiles(
+  inputFiles = inputFiles,
+  sampleNames = names(inputFiles),
+  filterTSS = 0, #Dont set this too high because you can always increase later
+  filterFrags = 0, 
   addTileMat = TRUE,
   addGeneScoreMat = TRUE,
 )

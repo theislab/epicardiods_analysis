@@ -15,4 +15,4 @@ source $path_to_conda_sh
 
 conda activate $env_name
 
-/home/icb/laura.martens/miniconda3/envs/archr/bin/Rscript /storage/groups/ml01/code/laura.martens/epicardiods_analysis/scripts/archr/create_archr_project.R
+/home/icb/laura.martens/miniconda3/envs/archr/bin/Rscript /lustre/groups/ml01/code/laura.martens/epicardiods_analysis/scripts/archr/create_archr_project.R
